@@ -35,3 +35,5 @@
 *.autosave
 /GeometryBuilder.pro.user
 *.astylerc
+*.Debug
+*.Release

@@ -90,7 +90,9 @@ HEADERS += \
     GraphicsShapes/graphicspolygon.h \
     GraphicsShapes/graphicsray.h \
     GraphicsShapes/helpers.h \
-    Helpers/graphicslinesegmentdata.h
+    Helpers/graphicslinesegmentdata.h \
+    DebugHelpers/constructioninfowriter.h \
+    DebugHelpers/objects.h
 
 SOURCES += \
     BSEHandlers/bsehandlerforcircle.cpp \
@@ -143,4 +145,6 @@ SOURCES += \
     GraphicsShapes/graphicslinesegment.cpp \
     GraphicsShapes/graphicspoint.cpp \
     GraphicsShapes/graphicspolygon.cpp \
-    GraphicsShapes/helpers.cpp
+    GraphicsShapes/helpers.cpp \
+    DebugHelpers/constructioninfowriter.cpp \
+    DebugHelpers/objects.cpp

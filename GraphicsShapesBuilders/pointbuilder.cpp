@@ -6,6 +6,8 @@
 #include "Helpers/objects.h"
 #include "Helpers/constructiondata.h"
 #include "GraphicsShapes/helpers.h"
+#include "DebugHelpers/constructioninfowriter.h"
+#include "DebugHelpers/objects.h"
 
 
 
@@ -28,6 +30,7 @@ void GSBuilders::PointBuilder::CreatePointOnFreePlace( QPointF const & center )
         m_point = new GraphicsPoint( center );
 
         GeomConstr::Objects::GetConstructionData().StoreGraphicsPoint( m_point );
+        DebugHelper::Objects::GetConstructionInfoWriter().WriteToFile( m_point );
     }
     else
     {

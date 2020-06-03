@@ -13,6 +13,5 @@ namespace DebugHelper
 
     void ShowMessageBox();
 	void ShowMessageBox( QString const & text );
-    void ShowTextInInput( QString const & text );
-
+	void ShowTextInInput( QString const & text );
 }

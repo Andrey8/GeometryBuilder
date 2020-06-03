@@ -143,7 +143,7 @@ bool GSBuilders::Additional::IntersectionPointsBuilder::FirstShapeIsSelected()
 void GSBuilders::Additional::IntersectionPointsBuilder::CreateIntersectionPoint( QPointF const & pos )
 {
     GraphicsPoint * p = new GraphicsPoint( pos );
-    Helpers::Objects::GetConstructionData().StoreGraphicsPoint( p );
+    GeomConstr::Objects::GetConstructionData().StoreGraphicsPoint( p );
 
     m_intersectionPoints.reserve( 1 );
 
@@ -231,8 +231,8 @@ void GSBuilders::Additional::IntersectionPointsBuilder::CreateIntersectionPoints
 {
     GraphicsPoint * p1 = new GraphicsPoint( pos1 );
     GraphicsPoint * p2 = new GraphicsPoint( pos2 );
-    Helpers::Objects::GetConstructionData().StoreGraphicsPoint( p1 );
-    Helpers::Objects::GetConstructionData().StoreGraphicsPoint( p2 );
+    GeomConstr::Objects::GetConstructionData().StoreGraphicsPoint( p1 );
+    GeomConstr::Objects::GetConstructionData().StoreGraphicsPoint( p2 );
 
     m_intersectionPoints.reserve( 2 );
 

@@ -114,7 +114,7 @@ void GSBuilders::LineSegmentBuilder::CreateFirstPoint( QPointF const & center )
         m_p1 = new GraphicsPoint( center );
         m_firstPointIsAdded = true;
 
-        Helpers::Objects::GetConstructionData().StoreGraphicsPoint( m_p1 );
+        GeomConstr::Objects::GetConstructionData().StoreGraphicsPoint( m_p1 );
     }
     else
     {
@@ -130,7 +130,7 @@ void GSBuilders::LineSegmentBuilder::CreateFirstPointOnLineSegment( QPointF cons
     m_p1 = new GraphicsPoint( center );
     m_firstPointIsAdded = true;
 
-    Helpers::Objects::GetConstructionData().StoreGraphicsPoint( m_p1 );
+    GeomConstr::Objects::GetConstructionData().StoreGraphicsPoint( m_p1 );
 }
 
 void GSBuilders::LineSegmentBuilder::CreateFirstPointOnCircle( QPointF const & scenePos, GraphicsCircle * c )
@@ -141,7 +141,7 @@ void GSBuilders::LineSegmentBuilder::CreateFirstPointOnCircle( QPointF const & s
     m_p1 = new GraphicsPoint( line.pointAt( c->GetRadius() / d ) );
     m_firstPointIsAdded = true;
 
-    Helpers::Objects::GetConstructionData().StoreGraphicsPoint( m_p1 );
+    GeomConstr::Objects::GetConstructionData().StoreGraphicsPoint( m_p1 );
 }
 
 void GSBuilders::LineSegmentBuilder::CreateSecondPoint( QPointF const & center )
@@ -150,7 +150,7 @@ void GSBuilders::LineSegmentBuilder::CreateSecondPoint( QPointF const & center )
     {
         m_p2 = new GraphicsPoint( center );
 
-        Helpers::Objects::GetConstructionData().StoreGraphicsPoint( m_p2 );
+        GeomConstr::Objects::GetConstructionData().StoreGraphicsPoint( m_p2 );
     }
     else
     {
@@ -165,7 +165,7 @@ void GSBuilders::LineSegmentBuilder::CreateSecondPointOnLineSegment( QPointF con
 
     m_p2 = new GraphicsPoint( center );
 
-    Helpers::Objects::GetConstructionData().StoreGraphicsPoint( m_p2 );
+    GeomConstr::Objects::GetConstructionData().StoreGraphicsPoint( m_p2 );
 }
 
 void GSBuilders::LineSegmentBuilder::CreateSecondPointOnCircle( QPointF const & scenePos, GraphicsCircle * c )
@@ -175,7 +175,7 @@ void GSBuilders::LineSegmentBuilder::CreateSecondPointOnCircle( QPointF const & 
 
     m_p2 = new GraphicsPoint( line.pointAt( c->GetRadius() / d ) );
 
-    Helpers::Objects::GetConstructionData().StoreGraphicsPoint( m_p2 );
+    GeomConstr::Objects::GetConstructionData().StoreGraphicsPoint( m_p2 );
 }
 
 void GSBuilders::LineSegmentBuilder::CreateTempPoint( QPointF const & center )
@@ -189,9 +189,9 @@ void GSBuilders::LineSegmentBuilder::CreateLineSegment()
     {
         m_lineSegment = new GraphicsLineSegment( m_p1, m_p2 );
 
-        Helpers::Objects::GetConstructionData().StoreGraphicsLineSegment( m_lineSegment );
+        GeomConstr::Objects::GetConstructionData().StoreGraphicsLineSegment( m_lineSegment );
         //m_lineSegment->SetAsContaining( true );
-        Helpers::Objects::GetConstructionData().SetGLSAsContaining( m_lineSegment, true );
+        GeomConstr::Objects::GetConstructionData().SetGLSAsContaining( m_lineSegment, true );
 
     }
     else
@@ -226,8 +226,8 @@ void GSBuilders::LineSegmentBuilder::AttachLineSegmentToItsEndPoints()
     //m_p1->AddLineSegmentAsDefined( m_lineSegment );
     //m_p2->AddLineSegmentAsDefined( m_lineSegment );
 
-    Helpers::Objects::GetConstructionData().AddLineSegmentAsDefined( m_p1, m_lineSegment );
-    Helpers::Objects::GetConstructionData().AddLineSegmentAsDefined( m_p2, m_lineSegment );
+    GeomConstr::Objects::GetConstructionData().AddLineSegmentAsDefined( m_p1, m_lineSegment );
+    GeomConstr::Objects::GetConstructionData().AddLineSegmentAsDefined( m_p2, m_lineSegment );
 }
 
 void GSBuilders::LineSegmentBuilder::Reset()

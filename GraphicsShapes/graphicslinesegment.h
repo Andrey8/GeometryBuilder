@@ -12,9 +12,9 @@
 class GraphicsPoint;
 class GraphicsLine;
 class GraphicsLineSegment;
-namespace Helpers { enum class SlopeType; }
-namespace Helpers { struct GLSGeometryData; }
-namespace Helpers { struct GLSLocationData; }
+namespace GeomConstr { enum class SlopeType; }
+namespace GeomConstr { struct GLSGeometryData; }
+namespace GeomConstr { struct GLSLocationData; }
 
 
 
@@ -30,8 +30,8 @@ public:
 	QPainterPath GetSelectionAreaPath() const;
 	QPainterPath GetLinearPath() const;
 	GraphicsLineSegment * GetContainingLineSegment() const;
-	Helpers::GLSGeometryData * GetGeometryData() const { return m_geometryData; }
-	Helpers::GLSLocationData * GetLocationData() const { return m_locationData; }
+	GeomConstr::GLSGeometryData * GetGeometryData() const { return m_geometryData; }
+	GeomConstr::GLSLocationData * GetLocationData() const { return m_locationData; }
 	//QList< GraphicsPoint * > const & GetInteriorPoints() const { return m_interiorPoints; }
 
     // setters
@@ -59,8 +59,8 @@ private:
 	GraphicsPoint * m_p1;
 	GraphicsPoint * m_p2;
 
-	Helpers::GLSGeometryData * m_geometryData;
-	Helpers::GLSLocationData * m_locationData;
+	GeomConstr::GLSGeometryData * m_geometryData;
+	GeomConstr::GLSLocationData * m_locationData;
 	QList< GraphicsPoint * > m_interiorPoints;
 	std::list< GraphicsLineSegment * > m_partitionSegments;
 
@@ -72,7 +72,7 @@ private:
 
 
 	void CalculateGeometryData();
-	void CalculateSlopeType( GraphicsPoint * p1, GraphicsPoint * p2, Helpers::SlopeType & type );
+	void CalculateSlopeType( GraphicsPoint * p1, GraphicsPoint * p2, GeomConstr::SlopeType & type );
 	void CalculateBoundingRectData();
 	void CalculateSelectionAreaPath();
 	void CalculateLinearPath();	

@@ -3,7 +3,7 @@
 
 
 
-Helpers::ConstructionData & Helpers::Objects::GetConstructionData()
+GeomConstr::ConstructionData & GeomConstr::Objects::GetConstructionData()
 {
 	static ConstructionData helper;
 

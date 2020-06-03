@@ -23,7 +23,7 @@ void GSBuilders::Additional::LineSegmentMidpointBuilder::CreateMidpoint()
     //m_midpoint->SetAsLineSegmentMidpoint( true );
 
     //PlaneScene::StorePoint( m_midpoint );
-    Helpers::Objects::GetConstructionData().StoreGraphicsPoint( m_midpoint );
+    GeomConstr::Objects::GetConstructionData().StoreGraphicsPoint( m_midpoint );
 }
 
 void GSBuilders::Additional::LineSegmentMidpointBuilder::Reset()

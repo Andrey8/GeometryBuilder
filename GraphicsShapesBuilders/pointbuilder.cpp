@@ -27,7 +27,7 @@ void GSBuilders::PointBuilder::CreatePointOnFreePlace( QPointF const & center )
     {
         m_point = new GraphicsPoint( center );
 
-        Helpers::Objects::GetConstructionData().StoreGraphicsPoint( m_point );
+        GeomConstr::Objects::GetConstructionData().StoreGraphicsPoint( m_point );
     }
     else
     {
@@ -42,7 +42,7 @@ void GSBuilders::PointBuilder::CreatePointOnLineSegment( QPointF const & scenePo
 
     m_point = new GraphicsPoint( center );
 
-    Helpers::Objects::GetConstructionData().StoreGraphicsPoint( m_point );
+    GeomConstr::Objects::GetConstructionData().StoreGraphicsPoint( m_point );
 }
 
 void GSBuilders::PointBuilder::CreatePointOnCircle( QPointF const & scenePos, GraphicsCircle * c )
@@ -51,7 +51,7 @@ void GSBuilders::PointBuilder::CreatePointOnCircle( QPointF const & scenePos, Gr
 
     m_point = new GraphicsPoint( l.pointAt( c->GetRadius() / l.length() ) );
 
-    Helpers::Objects::GetConstructionData().StoreGraphicsPoint( m_point );
+    GeomConstr::Objects::GetConstructionData().StoreGraphicsPoint( m_point );
 }
 
 void GSBuilders::PointBuilder::Reset()

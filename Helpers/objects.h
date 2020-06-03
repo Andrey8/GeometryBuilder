@@ -1,10 +1,10 @@
 #pragma once
 
-namespace Helpers { class ConstructionData; }
+namespace GeomConstr { class ConstructionData; }
 
 
 
-namespace Helpers
+namespace GeomConstr
 {
 	namespace Objects
 	{

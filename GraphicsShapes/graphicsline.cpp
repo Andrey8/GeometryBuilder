@@ -51,7 +51,7 @@ GraphicsLine::GraphicsLine( GraphicsPoint * p1, GraphicsPoint * p2 )
     m_initialSegment = new GraphicsLineSegment(
         m_definingPoints.GetFirst(),
         m_definingPoints.GetSecond() );
-    Helpers::ConstructionData & cdata = Helpers::Objects::GetConstructionData();
+    GeomConstr::ConstructionData & cdata = GeomConstr::Objects::GetConstructionData();
     cdata.StoreGraphicsLineSegment( m_initialSegment );
     //m_initialSegment->SetAsLinePart( true );
     cdata.SetGLSAsLinePart( m_initialSegment, true );
@@ -257,7 +257,7 @@ void GraphicsLine::PutPoint( GraphicsPoint * point, GraphicsLineSegment * segmen
 
     m_points.push_back( point );
 
-    Helpers::ConstructionData & cdata = Helpers::Objects::GetConstructionData();
+    GeomConstr::ConstructionData & cdata = GeomConstr::Objects::GetConstructionData();
 
     if ( segment == m_extendingSegments.first )
     {

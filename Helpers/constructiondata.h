@@ -12,13 +12,13 @@ class GraphicsLineSegment;
 class GraphicsLine;
 class GraphicsCircle;
 class GraphicsPolygon;
-namespace Helpers { struct GraphicsLineSegmentData; }
+namespace GeomConstr { struct GraphicsLineSegmentData; }
 namespace GPM { class CircleWithGuidePointType; }
 namespace GPM { enum class CircleMovingGuidePointType; }
 
 
 
-namespace Helpers
+namespace GeomConstr
 {
     struct CircleWithAngle
     {

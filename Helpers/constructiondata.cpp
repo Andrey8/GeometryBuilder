@@ -15,7 +15,7 @@
 
 
 
-void Helpers::ConstructionData::StoreGraphicsPoint( GraphicsPoint * point )
+void GeomConstr::ConstructionData::StoreGraphicsPoint( GraphicsPoint * point )
 {
     m_graphicsPoints.push_back( point );
 
@@ -29,7 +29,7 @@ void Helpers::ConstructionData::StoreGraphicsPoint( GraphicsPoint * point )
         point, GSI::IntersectionType::None );
 }
 
-void Helpers::ConstructionData::StoreGraphicsLineSegment( GraphicsLineSegment * ls )
+void GeomConstr::ConstructionData::StoreGraphicsLineSegment( GraphicsLineSegment * ls )
 {
     m_graphicsLineSegments.push_back( ls );
 
@@ -41,7 +41,7 @@ void Helpers::ConstructionData::StoreGraphicsLineSegment( GraphicsLineSegment * 
 
 
 
-void Helpers::ConstructionData::AddLineSegmentAsDefined( GraphicsPoint * p, GraphicsLineSegment * ls )
+void GeomConstr::ConstructionData::AddLineSegmentAsDefined( GraphicsPoint * p, GraphicsLineSegment * ls )
 {
     PointsWithDatasMapIterator it = m_pointsWithDatas.find( p );
 
@@ -55,7 +55,7 @@ void Helpers::ConstructionData::AddLineSegmentAsDefined( GraphicsPoint * p, Grap
     }
 }
 
-void Helpers::ConstructionData::AddLineSegmentAsNondefined( GraphicsPoint * p, GraphicsLineSegment * ls )
+void GeomConstr::ConstructionData::AddLineSegmentAsNondefined( GraphicsPoint * p, GraphicsLineSegment * ls )
 {
     PointsWithDatasMapIterator it = m_pointsWithDatas.find( p );
 
@@ -69,7 +69,7 @@ void Helpers::ConstructionData::AddLineSegmentAsNondefined( GraphicsPoint * p, G
     }
 }
 
-void Helpers::ConstructionData::AddLineAsDefined( GraphicsPoint * p, GraphicsLine * line )
+void GeomConstr::ConstructionData::AddLineAsDefined( GraphicsPoint * p, GraphicsLine * line )
 {
     PointsWithDatasMapIterator it = m_pointsWithDatas.find( p );
 
@@ -83,7 +83,7 @@ void Helpers::ConstructionData::AddLineAsDefined( GraphicsPoint * p, GraphicsLin
     }
 }
 
-void Helpers::ConstructionData::AddLineAsNondefined( GraphicsPoint * p, GraphicsLine * line )
+void GeomConstr::ConstructionData::AddLineAsNondefined( GraphicsPoint * p, GraphicsLine * line )
 {
     PointsWithDatasMapIterator it = m_pointsWithDatas.find( p );
 
@@ -97,7 +97,7 @@ void Helpers::ConstructionData::AddLineAsNondefined( GraphicsPoint * p, Graphics
     }
 }
 
-void Helpers::ConstructionData::AddCircleAsDefined( GraphicsPoint * p, GraphicsCircle * circle, GPM::CircleMovingGuidePointType type )
+void GeomConstr::ConstructionData::AddCircleAsDefined( GraphicsPoint * p, GraphicsCircle * circle, GPM::CircleMovingGuidePointType type )
 {
     PointsWithDatasMapIterator it = m_pointsWithDatas.find( p );
 
@@ -112,7 +112,7 @@ void Helpers::ConstructionData::AddCircleAsDefined( GraphicsPoint * p, GraphicsC
     }
 }
 
-void Helpers::ConstructionData::AddCircleAsNondefined( GraphicsPoint * p, GraphicsCircle * circle )
+void GeomConstr::ConstructionData::AddCircleAsNondefined( GraphicsPoint * p, GraphicsCircle * circle )
 {
     PointsWithDatasMapIterator it = m_pointsWithDatas.find( p );
 
@@ -130,7 +130,7 @@ void Helpers::ConstructionData::AddCircleAsNondefined( GraphicsPoint * p, Graphi
     }
 }
 
-void Helpers::ConstructionData::AddPolygon( GraphicsPoint * p, GraphicsPolygon * pol )
+void GeomConstr::ConstructionData::AddPolygon( GraphicsPoint * p, GraphicsPolygon * pol )
 {
     PointsWithDatasMapIterator it = m_pointsWithDatas.find( p );
 
@@ -144,7 +144,7 @@ void Helpers::ConstructionData::AddPolygon( GraphicsPoint * p, GraphicsPolygon *
     }
 }
 
-void Helpers::ConstructionData::AddPointAsLineSegmentInterior( GraphicsPoint * p, GraphicsLineSegment * ls )
+void GeomConstr::ConstructionData::AddPointAsLineSegmentInterior( GraphicsPoint * p, GraphicsLineSegment * ls )
 {
     LSWithDatasMapIterator it = m_lineSegmentsWithDatas.find( ls );
 
@@ -161,14 +161,14 @@ void Helpers::ConstructionData::AddPointAsLineSegmentInterior( GraphicsPoint * p
 
 
 
-void Helpers::ConstructionData::RemoveDefinedLineSegment( GraphicsPoint * p, GraphicsLineSegment * ls )
+void GeomConstr::ConstructionData::RemoveDefinedLineSegment( GraphicsPoint * p, GraphicsLineSegment * ls )
 {
     PointsWithDatasMapIterator it = m_pointsWithDatas.find( p );
 
     it->second->m_definedLineSegments.remove( ls );
 }
 
-void Helpers::ConstructionData::RemoveNondefinedLineSegment( GraphicsPoint * p, GraphicsLineSegment * ls )
+void GeomConstr::ConstructionData::RemoveNondefinedLineSegment( GraphicsPoint * p, GraphicsLineSegment * ls )
 {
     PointsWithDatasMapIterator it = m_pointsWithDatas.find( p );
 
@@ -177,7 +177,7 @@ void Helpers::ConstructionData::RemoveNondefinedLineSegment( GraphicsPoint * p, 
 
 
 
-Math::Angle const & Helpers::ConstructionData::GetAngleInNondefinedCircle( GraphicsPoint * p, GraphicsCircle * circle )
+Math::Angle const & GeomConstr::ConstructionData::GetAngleInNondefinedCircle( GraphicsPoint * p, GraphicsCircle * circle )
 {
     PointsWithDatasMapIterator it = m_pointsWithDatas.find( p );
 
@@ -197,7 +197,7 @@ Math::Angle const & Helpers::ConstructionData::GetAngleInNondefinedCircle( Graph
     throw Exception( "ERROR" );
 }
 
-std::list< GraphicsLineSegment * > const & Helpers::ConstructionData::GetDefinedLineSegments( GraphicsPoint * p ) const
+std::list< GraphicsLineSegment * > const & GeomConstr::ConstructionData::GetDefinedLineSegments( GraphicsPoint * p ) const
 {
     try
     {
@@ -209,7 +209,7 @@ std::list< GraphicsLineSegment * > const & Helpers::ConstructionData::GetDefined
     }
 }
 
-std::list< GraphicsLineSegment * > const & Helpers::ConstructionData::GetNondefinedLineSegments( GraphicsPoint * p ) const
+std::list< GraphicsLineSegment * > const & GeomConstr::ConstructionData::GetNondefinedLineSegments( GraphicsPoint * p ) const
 {
     //MapIterator it = m_pointsWithDatas.find( p );
     try
@@ -222,7 +222,7 @@ std::list< GraphicsLineSegment * > const & Helpers::ConstructionData::GetNondefi
     }
 }
 
-std::list< GraphicsLine * > const & Helpers::ConstructionData::GetDefinedLines( GraphicsPoint * p ) const
+std::list< GraphicsLine * > const & GeomConstr::ConstructionData::GetDefinedLines( GraphicsPoint * p ) const
 {
     try
     {
@@ -234,7 +234,7 @@ std::list< GraphicsLine * > const & Helpers::ConstructionData::GetDefinedLines( 
     }
 }
 
-std::list< GraphicsLine * > const & Helpers::ConstructionData::GetNondefinedLines( GraphicsPoint * p ) const
+std::list< GraphicsLine * > const & GeomConstr::ConstructionData::GetNondefinedLines( GraphicsPoint * p ) const
 {
     try
     {
@@ -246,7 +246,7 @@ std::list< GraphicsLine * > const & Helpers::ConstructionData::GetNondefinedLine
     }
 }
 
-std::list< GPM::CircleWithGuidePointType * > const & Helpers::ConstructionData::GetDefinedCirclesWithData( GraphicsPoint * p ) const
+std::list< GPM::CircleWithGuidePointType * > const & GeomConstr::ConstructionData::GetDefinedCirclesWithData( GraphicsPoint * p ) const
 {
     try
     {
@@ -258,7 +258,7 @@ std::list< GPM::CircleWithGuidePointType * > const & Helpers::ConstructionData::
     }
 }
 
-std::list< GraphicsCircle * > const & Helpers::ConstructionData::GetNondefinedCircles( GraphicsPoint * p ) const
+std::list< GraphicsCircle * > const & GeomConstr::ConstructionData::GetNondefinedCircles( GraphicsPoint * p ) const
 {
     try
     {
@@ -270,7 +270,7 @@ std::list< GraphicsCircle * > const & Helpers::ConstructionData::GetNondefinedCi
     }
 }
 
-uint16_t Helpers::ConstructionData::GetNondefinedShapesCount( GraphicsPoint * p ) const
+uint16_t GeomConstr::ConstructionData::GetNondefinedShapesCount( GraphicsPoint * p ) const
 {
     GraphicsPointData * gpdata = m_pointsWithDatas.at( p );
 
@@ -279,7 +279,7 @@ uint16_t Helpers::ConstructionData::GetNondefinedShapesCount( GraphicsPoint * p 
              gpdata->m_nondefinedCircles.size() );
 }
 
-std::list< GraphicsPolygon * > const & Helpers::ConstructionData::GetPolygons( GraphicsPoint * p ) const
+std::list< GraphicsPolygon * > const & GeomConstr::ConstructionData::GetPolygons( GraphicsPoint * p ) const
 {
     try
     {
@@ -291,7 +291,7 @@ std::list< GraphicsPolygon * > const & Helpers::ConstructionData::GetPolygons( G
     }
 }
 
-QList< GraphicsPoint * > const & Helpers::ConstructionData::GetInteriorPoints( GraphicsLineSegment * ls ) const
+QList< GraphicsPoint * > const & GeomConstr::ConstructionData::GetInteriorPoints( GraphicsLineSegment * ls ) const
 {
     try
     {
@@ -305,7 +305,7 @@ QList< GraphicsPoint * > const & Helpers::ConstructionData::GetInteriorPoints( G
 
 
 
-void Helpers::ConstructionData::SetGLSAsLinePart( GraphicsLineSegment * ls, bool isLinePart )
+void GeomConstr::ConstructionData::SetGLSAsLinePart( GraphicsLineSegment * ls, bool isLinePart )
 {
     LSWithDatasMapIterator it = m_lineSegmentsWithDatas.find( ls );
 
@@ -319,7 +319,7 @@ void Helpers::ConstructionData::SetGLSAsLinePart( GraphicsLineSegment * ls, bool
     }
 }
 
-void Helpers::ConstructionData::SetGLSAsLineSegmentPart( GraphicsLineSegment * ls, bool isLineSegmentPart )
+void GeomConstr::ConstructionData::SetGLSAsLineSegmentPart( GraphicsLineSegment * ls, bool isLineSegmentPart )
 {
     LSWithDatasMapIterator it = m_lineSegmentsWithDatas.find( ls );
 
@@ -333,7 +333,7 @@ void Helpers::ConstructionData::SetGLSAsLineSegmentPart( GraphicsLineSegment * l
     }
 }
 
-void Helpers::ConstructionData::SetGLSAsContaining( GraphicsLineSegment * ls, bool isContaining )
+void GeomConstr::ConstructionData::SetGLSAsContaining( GraphicsLineSegment * ls, bool isContaining )
 {
     LSWithDatasMapIterator it = m_lineSegmentsWithDatas.find( ls );
 
@@ -347,7 +347,7 @@ void Helpers::ConstructionData::SetGLSAsContaining( GraphicsLineSegment * ls, bo
     }
 }
 
-void Helpers::ConstructionData::SetGLSContainingLine( GraphicsLineSegment * ls, GraphicsLine * line )
+void GeomConstr::ConstructionData::SetGLSContainingLine( GraphicsLineSegment * ls, GraphicsLine * line )
 {
     LSWithDatasMapIterator it = m_lineSegmentsWithDatas.find( ls );
 
@@ -361,7 +361,7 @@ void Helpers::ConstructionData::SetGLSContainingLine( GraphicsLineSegment * ls, 
     }
 }
 
-void Helpers::ConstructionData::SetGLSContainingLineSegment( GraphicsLineSegment * dest, GraphicsLineSegment * containing )
+void GeomConstr::ConstructionData::SetGLSContainingLineSegment( GraphicsLineSegment * dest, GraphicsLineSegment * containing )
 {
     LSWithDatasMapIterator it = m_lineSegmentsWithDatas.find( dest );
 
@@ -377,7 +377,7 @@ void Helpers::ConstructionData::SetGLSContainingLineSegment( GraphicsLineSegment
 
 
 
-bool Helpers::ConstructionData::PointIsPolygonVertex( GraphicsPoint * p ) const
+bool GeomConstr::ConstructionData::PointIsPolygonVertex( GraphicsPoint * p ) const
 {
     try
     {
@@ -391,7 +391,7 @@ bool Helpers::ConstructionData::PointIsPolygonVertex( GraphicsPoint * p ) const
 
 
 
-void Helpers::ConstructionData::CalculateAngleInNondefinedCirclesOf( GraphicsPoint * p )
+void GeomConstr::ConstructionData::CalculateAngleInNondefinedCirclesOf( GraphicsPoint * p )
 {
     PointsWithDatasMapIterator it = m_pointsWithDatas.find( p );
 

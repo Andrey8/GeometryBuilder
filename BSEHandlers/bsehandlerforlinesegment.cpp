@@ -301,7 +301,7 @@ void GraphicsShapesBSEHandlers::HandlerForLineSegment::HandlePerpendicularLSAddi
 
         builder.SetLineSegment( m_lineSegment );
 
-        if ( Helpers::Objects::GetConstructionData().GetInteriorPoints( m_lineSegment ).contains( sourcePoint ) ||
+        if ( GeomConstr::Objects::GetConstructionData().GetInteriorPoints( m_lineSegment ).contains( sourcePoint ) ||
                 m_lineSegment->p1() == sourcePoint ||
                 m_lineSegment->p2() == sourcePoint )
         {

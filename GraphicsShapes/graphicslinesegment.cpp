@@ -32,8 +32,8 @@ GraphicsLineSegment::GraphicsLineSegment( GraphicsPoint * p1, GraphicsPoint * p2
     : m_p1( p1 ),
       m_p2( p2 ),
 
-      m_geometryData( new Helpers::GLSGeometryData() ),
-      m_locationData( new Helpers::GLSLocationData() ),
+      m_geometryData( new GeomConstr::GLSGeometryData() ),
+      m_locationData( new GeomConstr::GLSLocationData() ),
 
       m_isInPolygonBuildingProcess( false ),
       m_paintMode( GB::LineSegmentPaintMode::Usual )
@@ -115,7 +115,7 @@ void GraphicsLineSegment::PutPoint( GraphicsPoint * p, GraphicsLineSegment * seg
     }
     m_partitionSegments.remove( segment );
 
-    Helpers::ConstructionData & cdata = Helpers::Objects::GetConstructionData();
+    GeomConstr::ConstructionData & cdata = GeomConstr::Objects::GetConstructionData();
 
     GraphicsLineSegment * ls1 = new GraphicsLineSegment( segment->p1(), p );
     cdata.StoreGraphicsLineSegment( ls1 );
@@ -134,7 +134,7 @@ void GraphicsLineSegment::PutPoint( GraphicsPoint * p, GraphicsLineSegment * seg
     scene()->addItem( ls1 );
     scene()->addItem( ls2 );
 
-    Helpers::Objects::GetConstructionData().AddPointAsLineSegmentInterior( p, this );
+    GeomConstr::Objects::GetConstructionData().AddPointAsLineSegmentInterior( p, this );
     m_interiorPoints.push_back( p );
 
     //p->AddLineSegmentAsNondefined( this );
@@ -385,15 +385,15 @@ void GraphicsLineSegment::CalculateGeometryData()
     CalculateExtensionLineSegments();
 }
 
-void GraphicsLineSegment::CalculateSlopeType( GraphicsPoint * p1, GraphicsPoint * p2, Helpers::SlopeType & slopeType )
+void GraphicsLineSegment::CalculateSlopeType( GraphicsPoint * p1, GraphicsPoint * p2, GeomConstr::SlopeType & slopeType )
 {
     if ( p1->Y() == p2->Y() )
     {
-        slopeType = Helpers::SlopeType::Horizontal;
+        slopeType = GeomConstr::SlopeType::Horizontal;
     }
     else if ( p1->X() == p2->X() )
     {
-        slopeType = Helpers::SlopeType::Vertical;
+        slopeType = GeomConstr::SlopeType::Vertical;
     }
     else
     {
@@ -401,22 +401,22 @@ void GraphicsLineSegment::CalculateSlopeType( GraphicsPoint * p1, GraphicsPoint 
         {
             if ( p1->Y() < p2->Y() )
             {
-                slopeType = Helpers::SlopeType::Increasing;
+                slopeType = GeomConstr::SlopeType::Increasing;
             }
             else
             {
-                slopeType = Helpers::SlopeType::Decreasing;
+                slopeType = GeomConstr::SlopeType::Decreasing;
             }
         }
         else if ( p1->X() > p2->X() )
         {
             if ( p1->Y() < p2->Y() )
             {
-                slopeType = Helpers::SlopeType::Decreasing;
+                slopeType = GeomConstr::SlopeType::Decreasing;
             }
             else
             {
-                slopeType = Helpers::SlopeType::Increasing;
+                slopeType = GeomConstr::SlopeType::Increasing;
             }
         }
     }
@@ -438,7 +438,7 @@ void GraphicsLineSegment::CalculateSelectionAreaPath()
     QPainterPath path;
     switch ( m_geometryData->m_slopeType )
     {
-    case Helpers::SlopeType::Horizontal :
+    case GeomConstr::SlopeType::Horizontal :
     {
         path.moveTo( - w / 2, - r );
 
@@ -448,7 +448,7 @@ void GraphicsLineSegment::CalculateSelectionAreaPath()
 
         break;
     }
-    case Helpers::SlopeType::Vertical :
+    case GeomConstr::SlopeType::Vertical :
     {
         path.moveTo( - r, - h / 2 );
 
@@ -458,7 +458,7 @@ void GraphicsLineSegment::CalculateSelectionAreaPath()
 
         break;
     }
-    case Helpers::SlopeType::Increasing :
+    case GeomConstr::SlopeType::Increasing :
     {
         QPointF const p1 = mapFromScene( GetLeftEndCenter() );
 
@@ -482,7 +482,7 @@ void GraphicsLineSegment::CalculateSelectionAreaPath()
 
         break;
     }
-    case Helpers::SlopeType::Decreasing :
+    case GeomConstr::SlopeType::Decreasing :
     {
         QPointF const p1 = mapFromScene( GetLeftEndCenter() );
 
@@ -568,7 +568,7 @@ void GraphicsLineSegment::CalculateExtensionLineSegments()
 
 QPointF GraphicsLineSegment::GetLeftEndCenter() const
 {
-    if ( m_geometryData->m_slopeType == Helpers::SlopeType::Vertical )
+    if ( m_geometryData->m_slopeType == GeomConstr::SlopeType::Vertical )
     {
         // throw
     }

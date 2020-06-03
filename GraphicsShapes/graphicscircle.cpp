@@ -157,7 +157,7 @@ void GraphicsCircle::PutPoint( GraphicsPoint * p )
     m_nondefiningPoints.push_back( p );
 
     //p->AddCircleAsNondefined( this );
-    Helpers::Objects::GetConstructionData().AddCircleAsNondefined( p, this );
+    GeomConstr::Objects::GetConstructionData().AddCircleAsNondefined( p, this );
 }
 
 

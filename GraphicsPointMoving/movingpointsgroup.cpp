@@ -169,7 +169,7 @@ void GPM::MovingPointGroup::Move()
                     try
                     {
                         //Math::Angle const a = p->GetAngleInNondefinedCircle( m_jointCircle );
-                        Math::Angle const a = Helpers::Objects::GetConstructionData().GetAngleInNondefinedCircle( p, m_jointCircle );
+                        Math::Angle const a = GeomConstr::Objects::GetConstructionData().GetAngleInNondefinedCircle( p, m_jointCircle );
                         p->SetPosition( guidePos + QPointF( r * cos( a.GetRadians() ), - r * sin( a.GetRadians() ) ) );
                     }
                     catch ( Exception const & exc )
@@ -216,7 +216,7 @@ void GPM::MovingPointGroup::Move()
             foreach ( GraphicsPoint * p, m_points )
             {
                 //Math::Angle const a = p->GetAngleInNondefinedCircle( m_jointCircle );
-                Math::Angle const a = Helpers::Objects::GetConstructionData().GetAngleInNondefinedCircle( p, m_jointCircle );
+                Math::Angle const a = GeomConstr::Objects::GetConstructionData().GetAngleInNondefinedCircle( p, m_jointCircle );
                 p->SetPosition( centerPos + QPointF( r * cos( a.GetRadians() ), - r * sin( a.GetRadians() ) ) );
             }
 
@@ -238,7 +238,7 @@ void GPM::MovingPointGroup::Move()
                 {
                 case GSI::IntersectionType::LineWithLine :
                 {
-                    std::list< GraphicsLine * > lines = Helpers::Objects::GetConstructionData().GetNondefinedLines( p );
+                    std::list< GraphicsLine * > lines = GeomConstr::Objects::GetConstructionData().GetNondefinedLines( p );
 
                     if ( lines.size() != 2 )
                     {
@@ -254,7 +254,7 @@ void GPM::MovingPointGroup::Move()
                 }
                 case GSI::IntersectionType::LineSegmentsWithLineSegment :
                 {
-                    std::list< GraphicsLineSegment * > segments = Helpers::Objects::GetConstructionData().GetNondefinedLineSegments( p );
+                    std::list< GraphicsLineSegment * > segments = GeomConstr::Objects::GetConstructionData().GetNondefinedLineSegments( p );
 
                     if ( segments.size() != 2 )
                     {
@@ -270,8 +270,8 @@ void GPM::MovingPointGroup::Move()
                 }
                 case GSI::IntersectionType::LineWithLineSegment :
                 {
-                    GraphicsLine * l = Helpers::Objects::GetConstructionData().GetNondefinedLines( p ).front();
-                    GraphicsLineSegment * ls = Helpers::Objects::GetConstructionData().GetNondefinedLineSegments( p ).front();
+                    GraphicsLine * l = GeomConstr::Objects::GetConstructionData().GetNondefinedLines( p ).front();
+                    GraphicsLineSegment * ls = GeomConstr::Objects::GetConstructionData().GetNondefinedLineSegments( p ).front();
                     Math::LineWithLineSegmentIntersectionData const data =
                         GSHelpers::GetIntersectionData( l, ls );
                     p->SetPosition( data.GetIntersectionPoint() );
@@ -280,8 +280,8 @@ void GPM::MovingPointGroup::Move()
                 }
                 case GSI::IntersectionType::CircleWithLine :
                 {
-                    GraphicsCircle * c = Helpers::Objects::GetConstructionData().GetNondefinedCircles( p ).front();
-                    GraphicsLine * l = Helpers::Objects::GetConstructionData().GetNondefinedLines( p ).front();
+                    GraphicsCircle * c = GeomConstr::Objects::GetConstructionData().GetNondefinedCircles( p ).front();
+                    GraphicsLine * l = GeomConstr::Objects::GetConstructionData().GetNondefinedLines( p ).front();
                     Math::CircleWithLineIntersectionData const data =
                         GSHelpers::GetIntersectionData( c, l );
 
@@ -353,8 +353,8 @@ void GPM::MovingPointGroup::Move()
                 }
                 case GSI::IntersectionType::CircleWithLineSegment :
                 {
-                    GraphicsCircle * c = Helpers::Objects::GetConstructionData().GetNondefinedCircles( p ).front();
-                    GraphicsLineSegment * ls = Helpers::Objects::GetConstructionData().GetNondefinedLineSegments( p ).front();
+                    GraphicsCircle * c = GeomConstr::Objects::GetConstructionData().GetNondefinedCircles( p ).front();
+                    GraphicsLineSegment * ls = GeomConstr::Objects::GetConstructionData().GetNondefinedLineSegments( p ).front();
                     Math::CircleWithLineSegmentIntersectionData const data =
                         GSHelpers::GetIntersectionData( c, ls );
 

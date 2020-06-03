@@ -59,7 +59,7 @@ void PlaneScene::mousePressEvent( QGraphicsSceneMouseEvent * event )
 
     //DebugHelper::ShowTextInInput( "oppa" );
 
-    foreach ( GraphicsPoint * point, Helpers::Objects::GetConstructionData().GetGraphicsPoints() )
+    foreach ( GraphicsPoint * point, GeomConstr::Objects::GetConstructionData().GetGraphicsPoints() )
     {
         if ( point->isUnderMouse() )
         {
@@ -67,21 +67,21 @@ void PlaneScene::mousePressEvent( QGraphicsSceneMouseEvent * event )
             return;
         }
     }
-    foreach ( GraphicsLineSegment * ls, Helpers::Objects::GetConstructionData().GetGraphicsLineSegments() )
+    foreach ( GraphicsLineSegment * ls, GeomConstr::Objects::GetConstructionData().GetGraphicsLineSegments() )
     {
         if ( ls->isUnderMouse() )
         {
             return;
         }
     }
-    foreach ( GraphicsLine * line, Helpers::Objects::GetConstructionData().GetGraphicsLines() )
+    foreach ( GraphicsLine * line, GeomConstr::Objects::GetConstructionData().GetGraphicsLines() )
     {
         if ( line->isUnderMouse() )
         {
             return;
         }
     }
-    foreach ( GraphicsCircle * circle, Helpers::Objects::GetConstructionData().GetGraphicsCircles() )
+    foreach ( GraphicsCircle * circle, GeomConstr::Objects::GetConstructionData().GetGraphicsCircles() )
     {
         if ( circle->isUnderMouse() )
         {
@@ -90,7 +90,7 @@ void PlaneScene::mousePressEvent( QGraphicsSceneMouseEvent * event )
     }
 
     bool cursorAbovePointThatIsNotPolygonStart = false;
-    foreach ( GraphicsPoint * vertex, Helpers::Objects::GetConstructionData().GetGraphicsPoints() )
+    foreach ( GraphicsPoint * vertex, GeomConstr::Objects::GetConstructionData().GetGraphicsPoints() )
     {
         if ( vertex != m_polygonBuilder->GetStartPoint() &&
                 vertex->contains( event->scenePos() - vertex->scenePos() ) )

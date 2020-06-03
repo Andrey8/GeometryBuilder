@@ -15,7 +15,7 @@
 
 
 GPM::MovingManager::MovingManager()
-    : m_cdata( Helpers::Objects::GetConstructionData() )
+    : m_cdata( GeomConstr::Objects::GetConstructionData() )
 {}
 
 
@@ -56,7 +56,7 @@ void GPM::MovingManager::CalculateMovingData( GraphicsPoint * p )
 	foreach ( GraphicsLineSegment * ls, m_cdata.GetDefinedLineSegments( p ) )
 	{
 		GPM::MovingPointGroup group( ls, p );
-		group.SetPoints( Helpers::Objects::GetConstructionData().GetInteriorPoints( ls ) );
+		group.SetPoints( GeomConstr::Objects::GetConstructionData().GetInteriorPoints( ls ) );
 
 		groups_1.push_back( group );
 	}
@@ -96,7 +96,7 @@ void GPM::MovingManager::CalculateMovingData( GraphicsPoint * p )
 				foreach ( GraphicsLineSegment * s, m_cdata.GetDefinedLineSegments( point ) )
 				{
 					GPM::MovingPointGroup group( s, point );
-					group.SetPoints( Helpers::Objects::GetConstructionData().GetInteriorPoints( s ) );
+					group.SetPoints( GeomConstr::Objects::GetConstructionData().GetInteriorPoints( s ) );
 
 					groups_2.push_back( group );
 				}

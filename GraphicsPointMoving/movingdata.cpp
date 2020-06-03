@@ -9,7 +9,7 @@
 GPM::MovingData::MovingData()
     : m_movingIsAllowed( true ),
 
-      m_cdata( Helpers::Objects::GetConstructionData() )
+      m_cdata( GeomConstr::Objects::GetConstructionData() )
 {}
 
 

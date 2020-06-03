@@ -14,7 +14,7 @@ class GraphicsLineSegment;
 
 
 
-namespace Helpers
+namespace GeomConstr
 {
     enum class SlopeType
     {

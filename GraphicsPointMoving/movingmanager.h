@@ -4,7 +4,7 @@
 
 class GraphicsPoint;
 namespace GPM { class MovingData; }
-namespace Helpers { class ConstructionData; }
+namespace GeomConstr { class ConstructionData; }
 
 class QGraphicsSceneMouseEvent;
 
@@ -28,6 +28,6 @@ namespace GPM
     private:
         std::map< GraphicsPoint *, MovingData * > m_pointsWithDatas;
 
-        Helpers::ConstructionData & m_cdata;
+        GeomConstr::ConstructionData & m_cdata;
     };
 }

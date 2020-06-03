@@ -3,7 +3,7 @@
 #include <QList>
 
 namespace GPM { class MovingPointGroup; }
-namespace Helpers { class ConstructionData; }
+namespace GeomConstr { class ConstructionData; }
 class GraphicsLineSegment;
 class GraphicsPoint;
 
@@ -34,7 +34,7 @@ namespace GPM
 
         QList< GraphicsLineSegment * > m_transportLineSegments;
 
-        Helpers::ConstructionData const & m_cdata;
+        GeomConstr::ConstructionData const & m_cdata;
     };
 
 

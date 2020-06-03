@@ -16,7 +16,7 @@ void GSBuilders::PolygonBuilder::CreateStartPoint( QPointF const & c )
     m_vertices.push_back( m_startPoint );
     m_lastVertex = m_startPoint;
 
-    Helpers::Objects::GetConstructionData().StoreGraphicsPoint( m_startPoint );
+    GeomConstr::Objects::GetConstructionData().StoreGraphicsPoint( m_startPoint );
 }
 
 void GSBuilders::PolygonBuilder::CreateTempPoint( QPointF const & c )
@@ -41,7 +41,7 @@ void GSBuilders::PolygonBuilder::CreateVertex( QPointF const & c )
     m_currentVertex = new GraphicsPoint( c );
     m_vertices.push_back( m_currentVertex );
 
-    Helpers::Objects::GetConstructionData().StoreGraphicsPoint( m_currentVertex );
+    GeomConstr::Objects::GetConstructionData().StoreGraphicsPoint( m_currentVertex );
 }
 
 void GSBuilders::PolygonBuilder::CreateSide()
@@ -54,9 +54,9 @@ void GSBuilders::PolygonBuilder::CreateSide()
         //m_currentVertex->AddLineSegmentAsDefined( m_currentSide );
         m_lastVertex = m_currentVertex;
 
-        Helpers::Objects::GetConstructionData().StoreGraphicsLineSegment( m_currentSide );
-        Helpers::Objects::GetConstructionData().AddLineSegmentAsDefined( m_lastVertex, m_currentSide );
-        Helpers::Objects::GetConstructionData().AddLineSegmentAsDefined( m_currentVertex, m_currentSide );
+        GeomConstr::Objects::GetConstructionData().StoreGraphicsLineSegment( m_currentSide );
+        GeomConstr::Objects::GetConstructionData().AddLineSegmentAsDefined( m_lastVertex, m_currentSide );
+        GeomConstr::Objects::GetConstructionData().AddLineSegmentAsDefined( m_currentVertex, m_currentSide );
     }
     else
     {
@@ -90,9 +90,9 @@ void GSBuilders::PolygonBuilder::CreateLastSide()
     //m_startPoint->AddLineSegmentAsDefined( m_currentSide );
     m_polygonStartPointIsAdded = false;
 
-    Helpers::Objects::GetConstructionData().StoreGraphicsLineSegment( m_currentSide );
-    Helpers::Objects::GetConstructionData().AddLineSegmentAsDefined( m_lastVertex, m_currentSide );
-    Helpers::Objects::GetConstructionData().AddLineSegmentAsDefined( m_startPoint, m_currentSide );
+    GeomConstr::Objects::GetConstructionData().StoreGraphicsLineSegment( m_currentSide );
+    GeomConstr::Objects::GetConstructionData().AddLineSegmentAsDefined( m_lastVertex, m_currentSide );
+    GeomConstr::Objects::GetConstructionData().AddLineSegmentAsDefined( m_startPoint, m_currentSide );
 }
 
 void GSBuilders::PolygonBuilder::CreateGraphicsPolygon()
@@ -103,11 +103,11 @@ void GSBuilders::PolygonBuilder::CreateGraphicsPolygon()
 
     for ( GraphicsPoint * p : m_vertices )
     {
-        Helpers::Objects::GetConstructionData().AddPolygon( p, m_polygon );
+        GeomConstr::Objects::GetConstructionData().AddPolygon( p, m_polygon );
         //p->AddPolygon( m_polygon );
     }
 
-    Helpers::Objects::GetConstructionData().StoreGraphicsPolygon( m_polygon );
+    GeomConstr::Objects::GetConstructionData().StoreGraphicsPolygon( m_polygon );
 }
 
 GraphicsPoint * GSBuilders::PolygonBuilder::GetStartPoint()

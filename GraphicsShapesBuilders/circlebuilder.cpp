@@ -58,8 +58,8 @@ void GSBuilders::CircleBuilder::CreateCircle()
     m_circle->SetDefiningObjects( CircleDefiningObjects( m_center ) );
     //m_center->AddCircleAsDefined( m_circle, GPM::CircleMovingGuidePointType::Center );
 
-    Helpers::Objects::GetConstructionData().StoreGraphicsCircle( m_circle );
-    Helpers::Objects::GetConstructionData().AddCircleAsDefined( m_center, m_circle, GPM::CircleMovingGuidePointType::Center );
+    GeomConstr::Objects::GetConstructionData().StoreGraphicsCircle( m_circle );
+    GeomConstr::Objects::GetConstructionData().AddCircleAsDefined( m_center, m_circle, GPM::CircleMovingGuidePointType::Center );
 }
 
 void GSBuilders::CircleBuilder::CreateCircle( GraphicsPoint * p )
@@ -72,9 +72,9 @@ void GSBuilders::CircleBuilder::CreateCircle( GraphicsPoint * p )
     //m_center->AddCircleAsDefined( m_circle, GPM::CircleMovingGuidePointType::Center );
     //p->AddCircleAsDefined( m_circle, GPM::CircleMovingGuidePointType::OnlyPointOnCircle );
 
-    Helpers::Objects::GetConstructionData().StoreGraphicsCircle( m_circle );
-    Helpers::Objects::GetConstructionData().AddCircleAsDefined( m_center, m_circle, GPM::CircleMovingGuidePointType::Center );
-    Helpers::Objects::GetConstructionData().AddCircleAsDefined( p, m_circle, GPM::CircleMovingGuidePointType::OnlyPointOnCircle );
+    GeomConstr::Objects::GetConstructionData().StoreGraphicsCircle( m_circle );
+    GeomConstr::Objects::GetConstructionData().AddCircleAsDefined( m_center, m_circle, GPM::CircleMovingGuidePointType::Center );
+    GeomConstr::Objects::GetConstructionData().AddCircleAsDefined( p, m_circle, GPM::CircleMovingGuidePointType::OnlyPointOnCircle );
 }
 
 void GSBuilders::CircleBuilder::CreateCircle( GB::CircleBuildingType type )
@@ -92,10 +92,10 @@ void GSBuilders::CircleBuilder::CreateCircle( GB::CircleBuildingType type )
         //m_p2->AddCircleAsDefined( m_circle, GPM::CircleMovingGuidePointType::OneOfThreePointsOnCircle );
         //m_p3->AddCircleAsDefined( m_circle, GPM::CircleMovingGuidePointType::OneOfThreePointsOnCircle );
 
-        Helpers::Objects::GetConstructionData().StoreGraphicsCircle( m_circle );
-        Helpers::Objects::GetConstructionData().AddCircleAsDefined( m_p1, m_circle, GPM::CircleMovingGuidePointType::OneOfThreePointsOnCircle );
-        Helpers::Objects::GetConstructionData().AddCircleAsDefined( m_p2, m_circle, GPM::CircleMovingGuidePointType::OneOfThreePointsOnCircle );
-        Helpers::Objects::GetConstructionData().AddCircleAsDefined( m_p3, m_circle, GPM::CircleMovingGuidePointType::OneOfThreePointsOnCircle );
+        GeomConstr::Objects::GetConstructionData().StoreGraphicsCircle( m_circle );
+        GeomConstr::Objects::GetConstructionData().AddCircleAsDefined( m_p1, m_circle, GPM::CircleMovingGuidePointType::OneOfThreePointsOnCircle );
+        GeomConstr::Objects::GetConstructionData().AddCircleAsDefined( m_p2, m_circle, GPM::CircleMovingGuidePointType::OneOfThreePointsOnCircle );
+        GeomConstr::Objects::GetConstructionData().AddCircleAsDefined( m_p3, m_circle, GPM::CircleMovingGuidePointType::OneOfThreePointsOnCircle );
     }
 }
 
@@ -103,7 +103,7 @@ void GSBuilders::CircleBuilder::CreateCenter()
 {
     m_center = new GraphicsPoint( m_centerPos );
 
-    Helpers::Objects::GetConstructionData().StoreGraphicsPoint( m_center );
+    GeomConstr::Objects::GetConstructionData().StoreGraphicsPoint( m_center );
 }
 
 void GSBuilders::CircleBuilder::CreateCenterOnLineSegment( QPointF const & scenePos, GraphicsLineSegment * ls )
@@ -112,7 +112,7 @@ void GSBuilders::CircleBuilder::CreateCenterOnLineSegment( QPointF const & scene
     m_center = new GraphicsPoint( m_centerPos );
     m_centerIsAdded = true;
 
-    Helpers::Objects::GetConstructionData().StoreGraphicsPoint( m_center );
+    GeomConstr::Objects::GetConstructionData().StoreGraphicsPoint( m_center );
 }
 
 void GSBuilders::CircleBuilder::CreateCenterOnOtherCircle( QPointF const & scenePos, GraphicsCircle * c )
@@ -123,7 +123,7 @@ void GSBuilders::CircleBuilder::CreateCenterOnOtherCircle( QPointF const & scene
     m_center = new GraphicsPoint( m_centerPos );
     m_centerIsAdded = true;
 
-    Helpers::Objects::GetConstructionData().StoreGraphicsPoint( m_center );
+    GeomConstr::Objects::GetConstructionData().StoreGraphicsPoint( m_center );
 }
 
 void GSBuilders::CircleBuilder::Reset()

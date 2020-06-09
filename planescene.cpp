@@ -85,6 +85,7 @@ void PlaneScene::mousePressEvent( QGraphicsSceneMouseEvent * event )
     {
         if ( circle->isUnderMouse() )
         {
+            DebugHelper::ShowTextInInput( "to scene through circle" );
             return;
         }
     }
@@ -184,7 +185,7 @@ void PlaneScene::mousePressEvent( QGraphicsSceneMouseEvent * event )
         {
             if ( event->button() == Qt::LeftButton )
             {
-                //DebugHelper::ShowTextInInput( "In scene" );
+                DebugHelper::ShowTextInInput( "scene : tangent adding" );
 
                 m_BSEHandler->HandleTangentLSAdding( event );
             }

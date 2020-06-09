@@ -3,6 +3,8 @@
 #include "GraphicsShapes/graphicslinesegment.h"
 #include "GraphicsShapes/graphicscircle.h"
 #include "GraphicsShapes/helpers.h"
+#include "Helpers/constructiondata.h"
+#include "Helpers/objects.h"
 
 
 
@@ -10,11 +12,15 @@ void GSBuilders::Additional::ParallelLineSegmentBuilder::CreateFirstEndPoint( QP
 {
     m_firstEndPoint = new GraphicsPoint( pos );
     m_firstEndIsSelected = true;
+
+    GeomConstr::Objects::GetConstructionData().StoreGraphicsPoint( m_firstEndPoint );
 }
 
 void GSBuilders::Additional::ParallelLineSegmentBuilder::CreateSecondEndPoint( QPointF const & pos )
 {
     m_secondEndPoint = new GraphicsPoint( pos );
+
+    GeomConstr::Objects::GetConstructionData().StoreGraphicsPoint( m_secondEndPoint );
 }
 
 void GSBuilders::Additional::ParallelLineSegmentBuilder::CreateTempPoint()

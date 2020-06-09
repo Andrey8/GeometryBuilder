@@ -236,7 +236,7 @@ void GraphicsCircle::mousePressEvent( QGraphicsSceneMouseEvent * event )
         {
             if ( event->button() == Qt::LeftButton )
             {
-                //DebugHelper::ShowTextInInput( "In circle." );
+                DebugHelper::ShowTextInInput( "circle : tangent adding" );
 
                 bseHandler.HandleTangentLSAdding( event );
             }

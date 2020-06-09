@@ -3,6 +3,8 @@
 #include "GraphicsShapes/graphicslinesegment.h"
 #include "GraphicsShapes/helpers.h"
 #include "DebugHelpers/debughelper.h"
+#include "Helpers/constructiondata.h"
+#include "Helpers/objects.h"
 
 
 
@@ -10,6 +12,8 @@ void GSBuilders::Additional::TangentLineSegmentBuilder::CreateSourcePoint( QPoin
 {
     m_sourcePoint = new GraphicsPoint( scenePos );
     m_sourcePointIsSelected = true;
+
+    GeomConstr::Objects::GetConstructionData().StoreGraphicsPoint( m_sourcePoint );
 }
 
 void GSBuilders::Additional::TangentLineSegmentBuilder::CreateSourcePointOnLineSegment( QPointF const & scenePos, GraphicsLineSegment * ls )
@@ -18,6 +22,8 @@ void GSBuilders::Additional::TangentLineSegmentBuilder::CreateSourcePointOnLineS
         GSHelpers::GetPerpendicularBasePoint(
             scenePos, ls ) );
     m_sourcePointIsSelected = true;
+
+    GeomConstr::Objects::GetConstructionData().StoreGraphicsPoint( m_sourcePoint );
 }
 
 void GSBuilders::Additional::TangentLineSegmentBuilder::CreateSourcePointOnLine( QPointF const & scenePos, GraphicsLine * line )
@@ -26,6 +32,8 @@ void GSBuilders::Additional::TangentLineSegmentBuilder::CreateSourcePointOnLine(
         GSHelpers::GetPerpendicularBasePoint(
             scenePos, line ) );
     m_sourcePointIsSelected = true;
+
+    GeomConstr::Objects::GetConstructionData().StoreGraphicsPoint( m_sourcePoint );
 }
 
 void GSBuilders::Additional::TangentLineSegmentBuilder::CreateSourcePointOnCircle( QPointF const & scenePos, GraphicsCircle * circle )
@@ -34,6 +42,8 @@ void GSBuilders::Additional::TangentLineSegmentBuilder::CreateSourcePointOnCircl
         GSHelpers::GetPointOnCircle(
             scenePos, circle ) );
     m_sourcePointIsSelected = true;
+
+    GeomConstr::Objects::GetConstructionData().StoreGraphicsPoint( m_sourcePoint );
 }
 
 

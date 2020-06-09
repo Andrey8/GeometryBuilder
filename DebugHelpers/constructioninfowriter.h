@@ -20,6 +20,8 @@ namespace DebugHelper
         int m_i;
     };
 
+
+
     class ConstructionInfoWriter
     {
     public:

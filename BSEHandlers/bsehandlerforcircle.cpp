@@ -216,8 +216,8 @@ void GraphicsShapesBSEHandlers::HandlerForCircle::HandleTangentLSAdding( QGraphi
         builder.GetSourcePoint()->SetPaintMode(
             GB::PointPaintMode::Usual );
 
-        if ( GSHelpers::PointIsOutsideCircle(
-                    event->scenePos(), m_circle ) )
+        if ( !GSHelpers::PointIsOutsideCircle(
+                    builder.GetSourcePoint()->GetPosition(), m_circle ) )
         {
             builder.Reset();
 
@@ -225,6 +225,8 @@ void GraphicsShapesBSEHandlers::HandlerForCircle::HandleTangentLSAdding( QGraphi
 
             return;
         }
+
+        //DebugHelper::ShowTextInInput( "3wtrg3r" );
 
         builder.SetCircle( m_circle );
 

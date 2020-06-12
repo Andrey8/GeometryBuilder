@@ -37,5 +37,6 @@ private:
     GraphicsShapesBSEHandlers::HandlerForScene * m_BSEHandler;
 
     void Test();
+    void Test2();
 };
 

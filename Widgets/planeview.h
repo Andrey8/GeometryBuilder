@@ -25,6 +25,7 @@ public:
 
 	PlaneView( QWidget * parent = nullptr );
 protected:
+    //void mousePressEvent( QMouseEvent * event ) override { DebugHelper::ShowTextInInput( "View mouse press." ); }
     void mouseMoveEvent( QMouseEvent * event ) override;
 private:
 	PlaneScene * m_scene;

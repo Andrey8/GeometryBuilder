@@ -92,7 +92,8 @@ HEADERS += \
     GraphicsShapes/helpers.h \
     Helpers/graphicslinesegmentdata.h \
     DebugHelpers/constructioninfowriter.h \
-    DebugHelpers/objects.h
+    DebugHelpers/objects.h \
+    Tests/GUI/rect.h
 
 SOURCES += \
     BSEHandlers/bsehandlerforcircle.cpp \
@@ -147,4 +148,5 @@ SOURCES += \
     GraphicsShapes/graphicspolygon.cpp \
     GraphicsShapes/helpers.cpp \
     DebugHelpers/constructioninfowriter.cpp \
-    DebugHelpers/objects.cpp
+    DebugHelpers/objects.cpp \
+    Tests/GUI/rect.cpp

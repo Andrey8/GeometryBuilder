@@ -11,6 +11,7 @@
 #include "GraphicsShapesBuilders/objects.h"
 #include "GraphicsShapesBuilders/Additional/linesegmentextender.h"
 #include "BSEHandlers/bsehandlerforscene.h"
+#include "Tests/GUI/rect.h"
 
 #include <QObject>
 #include <QGraphicsSceneMouseEvent>
@@ -27,7 +28,9 @@ PlaneScene::PlaneScene()
     : m_polygonBuilder( &GSBuilders::Objects::GetPolygonBuilder() ),
       m_lineSegmentExtender( new GSBuilders::Additional::LineSegmentExtender() ),
       m_BSEHandler( new GraphicsShapesBSEHandlers::HandlerForScene( this ) )
-{}
+{
+    Test2();
+}
 
 
 
@@ -57,7 +60,9 @@ void PlaneScene::mousePressEvent( QGraphicsSceneMouseEvent * event )
 {
     QGraphicsScene::mousePressEvent( event );
 
-    //DebugHelper::ShowTextInInput( "oppa" );
+    //itemAt( event->scenePos(), 0 );
+
+    DebugHelper::ShowTextInInput( "Scene mouse press." );
 
     foreach ( GraphicsPoint * point, GeomConstr::Objects::GetConstructionData().GetGraphicsPoints() )
     {
@@ -223,5 +228,13 @@ void PlaneScene::Test()
     GraphicsPoint * b = new GraphicsPoint( 500, 500 );
     GraphicsLineSegment * ab = new GraphicsLineSegment( a, b );
     addItem( ab );
+}
+
+void PlaneScene::Test2()
+{
+    Tests::GUI::Rect * rect1 = new Tests::GUI::Rect(
+                                 QPointF( 300, 200 ), 200, 100 );
+
+    addItem( rect1 );
 }
 

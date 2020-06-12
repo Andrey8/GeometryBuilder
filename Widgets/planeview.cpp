@@ -41,6 +41,8 @@ PlaneView::PlaneView( QWidget * parent )
 
 
 
+//void PlaneView::mousePressEvent( QMouseEvent * event ) {}
+
 void PlaneView::mouseMoveEvent( QMouseEvent * event )
 {
     QGraphicsView::mouseMoveEvent( event );

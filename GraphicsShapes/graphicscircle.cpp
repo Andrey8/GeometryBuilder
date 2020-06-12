@@ -164,6 +164,8 @@ void GraphicsCircle::PutPoint( GraphicsPoint * p )
 
 void GraphicsCircle::mousePressEvent( QGraphicsSceneMouseEvent * event )
 {
+    DebugHelper::ShowTextInInput( "circle" );
+
     GraphicsShapesBSEHandlers::HandlerForCircle & bseHandler = GraphicsShapesBSEHandlers::Objects::GetHandlerForCircle();
     bseHandler.SetCircle( this );
     switch ( InteractionObjects::userActionMode )
